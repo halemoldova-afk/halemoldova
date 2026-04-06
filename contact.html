@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Constructii Hale Moldova</title>
+  <meta name="description" content="Contactează Constructii Hale Moldova pentru hale metalice și structuri metalice." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius: 20px;
+      --max-width: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.8)), linear-gradient(135deg, #0f172a, #1e293b 50%, #334155);
+      color: #fff;
+      padding: 4.5rem 0;
+    }
+
+    .hero h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      color: #e2e8f0;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #fff7ed;
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(249, 115, 22, 0.18);
+      border-color: var(--primary);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0.9rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    footer {
+      background: var(--bg);
+      color: #cbd5e1;
+      padding: 1.6rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .topbar-inner,
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+      }
+
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.6rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">CH</span>
+        <span>Constructii Hale Moldova</span>
+      </a>
+
+      <nav>
+        <a href="index.html#despre">Despre noi</a>
+        <a href="index.html#proiecte">Proiecte</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="contact.html">Solicită ofertă</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Contactează-ne</span>
+        <h1>Hai să discutăm despre proiectul tău.</h1>
+        <p>
+          Trimite-ne detaliile proiectului tău și revenim cu o ofertă, o estimare sau pașii următori.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container contact-grid">
+        <div class="card">
+          <h2>Date de contact</h2>
+          <p class="muted">
+            Lucrăm pentru clienți industriali, comerciali și agricoli care au nevoie de hale metalice și structuri metalice rezistente.
+          </p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="icon">@</div>
+              <div>
+                <strong>Email</strong>
+                <span>acpit.industries@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">T</div>
+              <div>
+                <strong>Telefon</strong>
+                <span>0749097690</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="icon">RO</div>
+              <div>
+                <strong>Zona de lucru</strong>
+                <span>România și zonele învecinate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Solicită o ofertă</h2>
+          <form action="https://formsubmit.co/acpit.industries@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Cerere nouă de pe website - Constructii Hale Moldova" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="contact.html?trimis=1" />
+
+            <div class="form-row">
+              <div>
+                <label for="name">Nume complet</label>
+                <input id="name" name="name" type="text" placeholder="Numele complet" required />
+              </div>
+              <div>
+                <label for="company">Companie</label>
+                <input id="company" name="company" type="text" placeholder="Numele companiei" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="adresa@exemplu.ro" required />
+              </div>
+              <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone" type="tel" placeholder="Număr de telefon" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message">Detalii proiect</label>
+              <textarea id="message" name="message" placeholder="Spune-ne ce tip de hală sau structură metalică dorești, dimensiuni, locație și termen estimat." required></textarea>
+            </div>
+
+            <button class="button" type="submit">Trimite cererea</button>
+            <p class="form-note">
+              La prima trimitere, serviciul de formulare vă va trimite un email de confirmare pentru activarea formularului.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong>Constructii Hale Moldova</strong> — Hale metalice și structuri metalice</div>
+      <div>© <span id="year"></span> Toate drepturile rezervate.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('trimis') === '1') {
+      const success = document.createElement('div');
+      success.textContent = 'Mesajul a fost trimis. Vă vom contacta cât mai curând.';
+      success.style.maxWidth = '1180px';
+      success.style.margin = '1rem auto 0';
+      success.style.padding = '1rem';
+      success.style.borderRadius = '16px';
+      success.style.background = '#dcfce7';
+      success.style.color = '#166534';
+      success.style.fontWeight = '700';
+      success.style.width = 'min(1180px, calc(100% - 2rem))';
+      document.querySelector('main').insertBefore(success, document.querySelector('main').children[1]);
+    }
+  </script>
+</body>
+</html>
